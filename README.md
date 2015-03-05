@@ -5,9 +5,37 @@
 [![License](https://img.shields.io/cocoapods/l/MABeaconReceiver.svg?style=flat)](http://cocoadocs.org/docsets/MABeaconReceiver)
 [![Platform](https://img.shields.io/cocoapods/p/MABeaconReceiver.svg?style=flat)](http://cocoadocs.org/docsets/MABeaconReceiver)
 
+## Description
+MABeaconReceiver allows you to connect to iBeacons in a light weight manner without having to rely on SDKs provided by iBeacon manufacturers.
+
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+    #import "MABeaconReceiver.h"
+
+And then create a property:
+
+    @property (strong, nonatomic) MABeaconReceiver *beaconReceiver;
+    
+Conform to the protocol: 
+
+    MABeaconReceiverDelegate
+
+Set up the receiver:
+
+    self.beaconReceiver = [[MABeaconReceiver alloc] initWithUUID:kUUID bundleID:kBundleID];
+    self.beaconReceiver.delegate = self;
+    
+Implement the function:
+
+    -(void)foundBacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region 
+    NSSortDescriptor *nearestSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"rssi" ascending:YES];
+    
+    NSArray *sortedBeacons = [beacons sortedArrayUsingDescriptors:@[nearestSortDescriptor]];
+    
+    //This is the nearest beacon
+    CLBeacon *beacon = [sortedBeacons lastObject];
+    }
+    
 
 ## Requirements
 
