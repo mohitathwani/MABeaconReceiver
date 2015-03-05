@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+target 'MABeaconReceiver', :exclusive => true do
+  pod "MABeaconReceiver", :path => "../"
+
+  
+end
