@@ -1,0 +1,14 @@
+PODS:
+  - MABeaconReceiver (0.1.0)
+
+DEPENDENCIES:
+  - MABeaconReceiver (from `../`)
+
+EXTERNAL SOURCES:
+  MABeaconReceiver:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MABeaconReceiver: 71a8e90663f2362b991f201159f5a3c06bd283b3
+
+COCOAPODS: 0.35.0
